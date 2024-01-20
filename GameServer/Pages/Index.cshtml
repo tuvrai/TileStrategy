@@ -1,0 +1,17 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h2 class="display-4">Play the game</h2>
+
+    <form method="post">
+        <label for="playerName">Player Name:</label>
+        <input type="text" id="playerName" name="PlayerName" asp-for="PlayerName" />
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="~/js/index.js"></script>
+</div>

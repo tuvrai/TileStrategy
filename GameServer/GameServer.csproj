@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\js\Nowy folder\**" />
+    <Content Remove="wwwroot\js\Nowy folder\**" />
+    <EmbeddedResource Remove="wwwroot\js\Nowy folder\**" />
+    <None Remove="wwwroot\js\Nowy folder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\game\sprites\" />
+  </ItemGroup>
+
+</Project>
