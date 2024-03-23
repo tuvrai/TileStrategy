@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudDev", "CloudDev\CloudD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameServer", "GameServer\GameServer.csproj", "{8A8F1B08-1C48-4DC2-903C-5ACC16A92FDC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseManager", "DatabaseManager\DatabaseManager.csproj", "{8302EE00-C439-47A3-887B-28185B9FA081}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldsMvcServer", "WorldsMvcServer\WorldsMvcServer.csproj", "{D0645D73-A6D0-4A02-8F97-32C96CD1C7BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{8A8F1B08-1C48-4DC2-903C-5ACC16A92FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A8F1B08-1C48-4DC2-903C-5ACC16A92FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A8F1B08-1C48-4DC2-903C-5ACC16A92FDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8302EE00-C439-47A3-887B-28185B9FA081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8302EE00-C439-47A3-887B-28185B9FA081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8302EE00-C439-47A3-887B-28185B9FA081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8302EE00-C439-47A3-887B-28185B9FA081}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0645D73-A6D0-4A02-8F97-32C96CD1C7BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0645D73-A6D0-4A02-8F97-32C96CD1C7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0645D73-A6D0-4A02-8F97-32C96CD1C7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0645D73-A6D0-4A02-8F97-32C96CD1C7BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

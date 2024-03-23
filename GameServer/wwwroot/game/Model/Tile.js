@@ -1,11 +1,12 @@
 class Tile {
+    static SelectedTile = null;
+
     graphics = null;
     terrain = null;
+    building = null;
     screenX = null;
     screenY = null;
-    sprite = null;
-
-    static SelectedTile = null;
+    width = 0;
 
     static GetNewTile(screenX, screenY) {
         let obj = new Tile();
@@ -14,6 +15,7 @@ class Tile {
         obj.screenY = screenY;
         obj.graphics.eventMode = 'static';
         obj.graphics.on('pointerdown', () => { obj.SelectTile(); });
+        obj.building = null;
 
         return obj;
     }
@@ -40,7 +42,15 @@ class Tile {
         return this;
     }
 
-    AsBuilding(type) {
-
+    WithBuilding(type) {
+        switch (type) {
+            case "castle":
+                this.building = new Castle();
+                break;
+            default:
+                this.building = null;
+        }
+        this.graphics.on('pointerdown', () => { alert("clicked"); });
+        return this;
     }
 }

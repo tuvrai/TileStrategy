@@ -1,0 +1,20 @@
+﻿@model WorldsMvcServer.Models.World.WorldRawData
+@{
+    ViewData["Title"] = $"World {Model.WorldId} - {Model.WorldName}";
+}
+
+<div id="game-container" style="padding:1px;">
+    <div id="game-screen">
+        <script src="~/game/Model/Terrains/Colors.js"></script>
+        <script src="~/game/Model/Terrains/Terrain.js"></script>
+        <script src="~/game/Model/Tile.js"></script>
+        <script src="~/game/main.js" type="text/javascript"></script>
+    </div>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", () => 
+        {
+            const jsonConfig = @Html.Raw(Json.Serialize(Model.JsonConfig));
+            main(jsonConfig);
+        });
+    </script>
+</div>

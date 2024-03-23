@@ -1,0 +1,9 @@
+#game-container {
+    border: 2px solid black;
+}
+
+#game-screen {
+    border: 3px dashed black;
+    width: 60vw;
+    height: 90vh;
+}

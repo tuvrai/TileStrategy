@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+}
+
+<div style="text-align:center">
+    <h1>Create new world</h1>
+    <form method="post" action="/World/Create">
+        <!-- Input fields for world properties -->
+        Name: <input type="text" name="Name" placeholder="World Name" /><br />
+        Max players: <input type="number" value="1" min="1" max="10" name="MaxPlayers" placeholder="" /><br />
+        Size: <input type="number" value="10" min="10" max="50" name="Size" placeholder="" /><br />
+        <button style="display:block;margin:auto" type="submit">Create World</button>
+    </form>
+</div>
+

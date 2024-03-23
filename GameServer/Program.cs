@@ -22,4 +22,8 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(name: "world", pattern: "world/{id}", defaults: new { controller = "World", action = "EnterWorld" });
+
 app.Run();

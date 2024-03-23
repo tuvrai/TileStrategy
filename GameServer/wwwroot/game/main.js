@@ -3,17 +3,23 @@ document.addEventListener("DOMContentLoaded", () =>
     const gameScreenDiv = document.getElementById("game-screen");
     const appWidth = gameScreenDiv.offsetWidth - 5;
     const appHeight = gameScreenDiv.offsetHeight - 5;
-    const tileSize = appWidth / 30;
+    const tileSize = appWidth / 10;
     tilesX = Math.ceil(appWidth / tileSize);
     tilesY = Math.ceil(appHeight / tileSize);
     const tiles = [...Array(tilesX)].map(e => Array(tilesY));
-    let selectedTile = null;
 
     function RenderTile(obj) {
         obj.graphics.clear();
         obj.graphics.beginFill(obj.terrain.TerrainColor);
         obj.graphics.drawRect(obj.screenX, obj.screenY, tileSize, tileSize);
         obj.graphics.endFill();
+        if (obj.building != undefined && obj.building != null) {
+            const margin = tileSize / 7;
+            obj.building.graphics.x = obj.screenX + margin;
+            obj.building.graphics.y = obj.screenY + margin;
+            obj.building.graphics.width = tileSize - margin - margin;
+            obj.building.graphics.height = tileSize - margin - margin;
+        }
     }
 
     function RenderSelectedTile() {
@@ -36,6 +42,11 @@ document.addEventListener("DOMContentLoaded", () =>
         for (let y = 0; y < tilesY; y++) {
             tiles[x][y] = Tile.GetNewTile(x * tileSize, y * tileSize).AsTerrain(BaseTerrainTypes.Forest);
             app.stage.addChild(tiles[x][y].graphics);
+            if (x % 5 == 0 && y % 10 == 0) {
+                tiles[x][y] = tiles[x][y].WithBuilding("castle");
+                app.stage.addChild(tiles[x][y].building.graphics);
+                tiles[x][y].building.graphics.tint = Math.random() * 0xffffff;
+            }
         }
     }
 
@@ -53,26 +64,3 @@ document.addEventListener("DOMContentLoaded", () =>
         RenderSelectedTile();
     })
 });
-
-function getRandomRgb() {
-    const hexChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
-    const a = hexChars[Math.floor(Math.random() * 16)];
-    const b = hexChars[Math.floor(Math.random() * 16)];
-    const c = hexChars[Math.floor(Math.random() * 16)];
-    const d = hexChars[Math.floor(Math.random() * 16)];
-    const e = hexChars[Math.floor(Math.random() * 16)];
-    const f = hexChars[Math.floor(Math.random() * 16)];
-    return `0x${a}${b}${c}${d}${e}${f}`;
-}
-
-function getRandomRgbColor() {
-    const r = Math.floor(Math.random() * 255);
-    const g = Math.floor(Math.random() * 255);
-    const b = Math.floor(Math.random() * 255);
-
-    return new Color(r, g, b);
-}
-
-function GetRandomRgbBaseColor() {
-    return baseColors[Math.floor(Math.random() * baseColors.length)];
-}

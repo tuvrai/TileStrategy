@@ -4,20 +4,60 @@ class BaseTerrainTypes {
     static Forest = "Forest";
 }
 
+class Property {
+    constructor(name, value) {
+        this.name = name;
+        this.value = value;
+    }
+
+    serialize() {
+        return JSON.stringify({
+            name: this.name,
+            value: this.value
+        });
+    }
+
+    static deserialize(json) {
+        const data = JSON.parse(json);
+        return new Property(data.name, data.value);
+    }
+}
+
+class Building {
+    #baseColor = new Color(0, 0, 0);
+    #currentColor = new Color(0, 0, 0, 1);
+    type = undefined;
+    icon = undefined;
+    #properties = new Map();
+
+    constructor(type) {
+
+    }
+
+    get ImageName() {
+        return `${this.icon}.png`;
+    }
+}
+
+class Castle extends Building {
+    constructor() {
+        super("castle");
+        this.type = "castle";
+        this.icon = "castle";
+        this.graphics = PIXI.Sprite.from(`./../../../game/sprites/${this.ImageName}`);
+    }
+}
+
 class Terrain {
     static #terrainColorLevels = [1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0, -0.05];
 
-    #type = undefined;
-    #currentRichness = undefined;
-    #fullRichness = undefined;
     #baseColor = new Color(0, 0, 0);
     #currentColor = new Color(0, 0, 0, 1);
-    #currentTerrainColorLevelId = 0;
+    #type = undefined;
     #terrainColorsGradient = [];
-
-    Id = undefined;
-    X = undefined;
-    Y = undefined;
+    #currentRichness = undefined;
+    #fullRichness = undefined;
+    #currentTerrainColorLevelId = 0;
 
     constructor(type, color, richness) {
         this.#type = type;
@@ -59,7 +99,6 @@ class Terrain {
                 break;
             }
         }
-        console.log(rate, this.TerrainColor);
     }
 
     createColorsGradient() {
